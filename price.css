@@ -1,0 +1,876 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: ease;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+#navigationBar {
+    background-color: #e0dcff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+#navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    border-bottom: 0.1px solid black;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem; 
+    flex: 1; 
+}
+
+#left {
+    justify-content: flex-end;
+}
+
+#right {
+    justify-content: flex-start;
+}
+
+#left a, #right a {
+    text-decoration: none;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 3rem; 
+}
+
+#left a:hover, #right a:hover {
+    color: #A294F9;
+}
+
+#left a::after, #right a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #A294F9;
+    transition: width 0.3s ease;
+}
+
+#left a:hover::after, #right a:hover::after {
+    width: 100%;
+}
+
+#ImgLogo {
+    margin: 0 4rem; 
+}
+
+#ImgLogo img {
+    width: 100px; 
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+#ImgLogo img:hover {
+    transform: scale(1.05);
+}
+
+#mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000;
+}
+#home {
+    background-image: url("/images/galllerybg.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 30px;
+    margin-inline: 10px;
+    margin-top: 100px;
+}
+#home h1 
+{
+    font-size: 4rem;
+    font-family: "Cormorant Garamond", serif;
+    color: ghostwhite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    #content h1 {
+        font-size: 3.5rem;
+    }
+    
+    #content h2 {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 768px) {
+
+    #navigationBar 
+    {
+
+        border-bottom-right-radius: 30px;
+    }
+    #navigation {
+        flex-direction: column;
+        padding: 1rem;
+        position: relative;
+        border-bottom-right-radius: 30px;
+    }
+
+    #ImgLogo {
+        margin: 0 auto;
+        order: -1; /* Ensures logo stays at top */
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 30%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    #navigation.mobile-active .nav-links {
+        display: flex;
+        
+    }
+    #home {
+        background-image: url("/images/mbg.jpeg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        margin-top: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #left, #right {
+        justify-content: center;
+    }
+
+    #left a, #right a {
+        padding: 1rem 0;
+        font-size: 1.5rem;
+    }
+
+    #mobile-menu-button {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        z-index: 1001;
+        
+    }
+}
+
+/* Ensure logo stays visible */
+#ImgLogo {
+    transition: all 0.3s ease;
+}
+
+#navigation.mobile-active #ImgLogo {
+    position: static;
+    margin: 1rem auto;
+}
+
+@media (max-width: 576px) {
+    #navigation {
+        padding: 1.4rem;
+    }
+    
+    #ImgLogo img {
+        width: 80px;
+    }
+    
+    #content h1 {
+        font-size: 2.5rem;
+        color: blanchedalmond;
+    }
+    
+    #content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+#gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2.5rem;
+}
+#gallery h1, #pricing h3, #feedback h1{
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.2rem;
+    color: #A294F9;
+    letter-spacing: 3px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+
+#gallery h2, #pricing h2, #feedback h2{
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #333;
+}
+
+.masonry-grid {
+    columns: 4 250px;
+    column-gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.masonry-grid img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    break-inside: avoid;
+}
+
+.masonry-grid img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 1200px) {
+    .masonry-grid {
+        columns: 3 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry-grid {
+        columns: 2 200px;  /* 2 columns on tablets */
+    }
+    #home h1 
+    {
+        font-size: 2rem;
+    }
+    #home 
+    {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-grid {
+        columns: 2 150px; 
+        column-gap: 15px;  
+    }
+    
+    .masonry-grid img {
+        margin-bottom: 15px;  
+    }
+}
+
+@media (max-width: 360px) {
+    .masonry-grid {
+        columns: 1 150px;  
+    }
+}
+
+#quotes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 3rem;
+    min-height: 50vh;
+    text-align: center;
+    background-color: #F5EFFF; 
+    position: relative;
+}
+
+#quotes img {
+    width: 80px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+#quotes h1 {
+    font-size: clamp(1.5rem, 4vw, 3rem); 
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.4;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 2rem;
+}
+
+#quotes h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background-color: #BBA085; 
+}
+
+
+
+/* Add to your main.css */
+#translator-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    background-color: #BBA085;
+}
+
+#google_translate_element {
+    display: inline-block;
+}
+
+.goog-te-gadget {
+    font-family: 'Roboto', sans-serif !important;
+    color: transparent !important;
+}
+
+.goog-te-combo {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Hide Google branding */
+.goog-logo-link, .goog-te-gadget span {
+    display: none !important;
+}
+
+/* Fix the dropdown arrow */
+.goog-te-combo {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+    background-size: 12px;
+    padding-right: 30px;
+}
+/* Emoji Rating Styles */
+.emoji-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.emoji-rating span {
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.emoji-container {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.emoji-container input[type="radio"] {
+    display: none;
+}
+
+.emoji-container label {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.emoji-container label:hover {
+    transform: scale(1.2);
+}
+
+.emoji-container input[type="radio"]:checked + label {
+    transform: scale(1.3);
+}
+
+/* Keep existing styles for other elements */
+#feedback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 2rem;
+}
+
+#form {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    padding: 1rem;
+    max-width: 500px;
+}
+
+#feedback h2 {
+    text-align: center;
+}
+
+#form input:not([type="radio"]) {
+    padding: 1rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    color: #333;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+#form input:not([type="radio"]):focus {
+    outline: none;
+    border-bottom: 1px solid #BBA085;
+}
+
+#form input:not([type="radio"])::placeholder {
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+#feedbackBtn {
+    margin-top: 1rem;
+}
+
+#feedbackBtn button {
+    background-color: #A294F9;
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#feedbackBtn button:hover {
+    transform: translateY(-2px);
+}
+/* Add these to your existing CSS */
+.error-message {
+    color: black;
+    font-size: 0.9rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    display: none;
+}
+
+.rating-value {
+    margin-left: auto;
+    font-size: 0.9rem;
+    color: #BBA085;
+    font-weight: bold;
+}
+
+/* Add this to make invalid inputs visible */
+#form input:invalid {
+    border-bottom: 1px solid grey;
+}
+
+#form input:invalid::placeholder {
+    color: black;
+}
+
+
+
+footer {
+    background-color: #F5EFFF;
+    padding: 3rem 2rem;
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    position: relative;
+    border-top: 0.1px solid grey;
+}
+
+footer h1 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 300;
+    font-family: "Cormorant Garamond", serif;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer img[alt="end"] {
+    width: 200px;
+    margin: 1rem 0 2rem;
+    opacity: 0.7;
+}
+
+#socialMedias {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+#socialMedias img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#socialMedias img:hover {
+    transform: scale(1.2);
+}
+footer p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 2rem;
+}
+
+#Location {
+    background-color:#A294F9;
+    color:white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#Location:hover {
+    transform: translateY(-2px);
+    color: white;
+}
+
+footer p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 2rem;
+}
+
+.location-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #e0dcff;
+    padding: 2rem;
+    border-radius: 30px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.close-popup {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #777;
+}
+
+.location-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.map-container {
+    height: 300px;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.address-container {
+    text-align: center;
+}
+
+.address-container h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.address-container p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    footer h1 {
+        font-size: 1.5rem;
+    }
+
+    
+    .location-container {
+        flex-direction: column;
+    }
+    
+    .map-container {
+        height: 250px;
+    }
+}
+#pricing h3 
+{
+    margin-top: 3rem;
+}
+#pricing h3, #pricing h2
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .container section {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+    padding: 40px;
+    border-radius:30px;
+    border: 0.1px solid #A294F9;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .price-list li {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Jost", sans-serif;
+    padding: 0.4rem 0;
+    font-weight: 600;
+    border-bottom: 1px dashed #ddd;
+  }
+  
+  
+  .view-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    background-color: #A294F9;
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 0.1px solid black;
+    transition: background 0.3s ease;
+  }
+
+  @media (max-width: 600px) {
+    .price-list li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .price-list li span:last-child {
+      align-self: flex-end;
+      margin-top: 4px;
+    }
+  }
+.image-gallery {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f5e6ff;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.gallery-placeholder {
+    text-align: center;
+    padding: 20px;
+    color: black;
+    font-style: italic;
+}
+
+.image-gallery .masonry-grid {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 10px;
+}
+
+.image-gallery .masonry-grid img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.image-gallery .masonry-grid img:hover {
+    transform: scale(1.02);
+}
+
+.image-grid
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+.grid-item
+{
+    flex: 0 0 calc(33.333% - 16px);
+    max-width: 150px;
+}
+.grid-item img {
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    display: block;
+    border: 0.1px solid gray;
+  }
+  @media (max-width: 767px) {
+    .grid-item {
+      flex: 0 0 calc(50% - 16px);
+      max-width: calc(50% - 16px);
+    }
+  }
+  
+  
+
+
+
+.goog-te-gadget {
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 16px;
+    color: #333 !important;
+}
+
+.goog-te-combo {
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color:#A294F9;
+    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.goog-te-combo:hover {
+    border-color: #999;
+    background-color: #f0f0f0;
+}
+
+.goog-te-combo:focus {
+    border-color: #666;
+    box-shadow: 0 0 3px rgba(100, 100, 100, 0.5);
+}

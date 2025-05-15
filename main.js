@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const loadingGif = document.createElement('img');
     loadingGif.src = '/images/loading.gif';
-    loadingGif.alt = 'Yes, I Know It’s Slow. My Coding Teacher Was YouTube.';
+    loadingGif.alt = 'Yes, I Know It’s Slow. My Coding Teacher Was YouTube 🤡';
     loadingGif.style.width = '160px';
     loadingGif.style.height = '160px';
     

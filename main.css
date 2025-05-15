@@ -190,15 +190,11 @@ body {
 }
 @media (max-width: 768px) {
 
-    #navigationBar 
-    {
-        border-bottom-right-radius: 30px;
-    }
+    
     #navigation {
         flex-direction: column;
         padding: 1rem;
         position: relative;
-        border-bottom-right-radius: 30px;
     }
 
     #ImgLogo {
@@ -223,12 +219,12 @@ body {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 90vh;
+        height: 94vh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        margin-top: 90px; 
+        margin-top: 50px; 
         margin-bottom: 10px;
     }
 

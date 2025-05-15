@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const loadingGif = document.createElement('img');
     loadingGif.src = '/images/loading.gif';
-    loadingGif.alt = 'Yes, I Know It’s Slow. My Coding Teacher Was YouTube 🤡';
+    loadingGif.alt = 'Loading';
     loadingGif.style.width = '160px';
     loadingGif.style.height = '160px';
     
     const loadingText = document.createElement('p');
-    loadingText.textContent = 'LOADING...';
+    loadingText.textContent = 'Yes, I Know It’s Slow. My Coding Teacher Was YouTube 🤡';
     loadingText.style.marginTop = '15px';
     loadingText.style.fontSize = '16px';
     loadingText.style.color = '#333';

@@ -1,0 +1,926 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: ease;
+}
+:target {
+    scroll-margin-top: 150px; /* Adjust this value to match your navbar height */
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+#navigationBar {
+    background-color: #edeced;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+#navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    border-bottom: 0.1px solid black;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem; 
+    flex: 1; 
+}
+
+#left {
+    justify-content: flex-end;
+}
+
+#right {
+    justify-content: flex-start;
+}
+
+#left a, #right a {
+    text-decoration: none;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 3rem; 
+}
+
+#left a:hover, #right a:hover {
+    color: #2200ff;
+}
+
+#left a::after, #right a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #A294F9;
+    transition: width 0.3s ease;
+}
+
+#left a:hover::after, #right a:hover::after {
+    width: 100%;
+}
+
+#ImgLogo {
+    margin: 0 4rem; 
+}
+
+#ImgLogo img {
+    width: 100px; 
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+#ImgLogo img:hover {
+    transform: scale(1.05);
+}
+
+#mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000;
+}
+#home {
+    background-image: url("/images/packagebg.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-inline: 0;
+    margin-top: 80px;
+}
+#home h1 
+{
+    font-size: 3rem;
+    color: rgb(255, 238, 0);
+    text-transform: uppercase;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 768px) {
+    #navigationBar {
+        border-bottom-right-radius: 30px;
+    }
+    #navigation {
+        flex-direction: column;
+        padding: 1rem;
+        position: relative;
+        border-bottom-right-radius: 30px;
+    }
+
+    #ImgLogo {
+        margin: 0 auto;
+        order: -1; 
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 30%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    #navigation.mobile-active .nav-links {
+        display: flex;
+    }
+    
+    #home {
+        background-image: url("/images/newbackground.jpeg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 105px; 
+        border-radius: 0;
+    }
+    
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #left, #right {
+        justify-content: center;
+    }
+
+    #left a, #right a {
+        padding: 1rem 0;
+        font-size: 1.5rem;
+    }
+
+    #mobile-menu-button {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        z-index: 1001;
+    }
+}
+
+#ImgLogo {
+    transition: all 0.3s ease;
+}
+
+#navigation.mobile-active #ImgLogo {
+    position: static;
+    margin: 1rem auto;
+}
+
+@media (max-width: 576px) {
+    #navigation {
+        padding: 1.4rem;
+    }
+    
+    #ImgLogo img {
+        width: 80px;
+    }
+}
+#translator-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    background-color: #BBA085;
+}
+
+#google_translate_element {
+    display: inline-block;
+}
+
+.goog-te-gadget {
+    font-family: 'Roboto', sans-serif !important;
+    color: transparent !important;
+}
+
+.goog-te-combo {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+    color: #333;
+}
+
+.goog-logo-link, .goog-te-gadget span {
+    display: none !important;
+}
+
+.goog-te-combo {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+    background-size: 12px;
+    padding-right: 30px;
+}
+
+
+footer {
+    background-color: #F5EFFF;
+    padding: 3rem 2rem;
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    position: relative;
+    border-top: 0.1px solid grey;
+}
+
+footer h1 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 300;
+    font-family: "Cormorant Garamond", serif;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer img[alt="end"] {
+    width: 200px;
+    margin: 1rem 0 2rem;
+    opacity: 0.7;
+}
+
+#socialMedias {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+#socialMedias img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#socialMedias img:hover {
+    transform: scale(1.2);
+}
+footer p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 2rem;
+}
+
+#Location {
+    background-color:#A294F9;
+    color:white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#Location:hover {
+    transform: translateY(-2px);
+    color: white;
+}
+
+footer p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 2rem;
+}
+
+.location-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #e0dcff;
+    padding: 2rem;
+    border-radius: 30px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.close-popup {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #777;
+}
+
+.location-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.map-container {
+    height: 300px;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.address-container {
+    text-align: center;
+}
+
+.address-container h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.address-container p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    footer h1 
+    {
+        font-size: 1rem;
+    }
+    
+    .location-container {
+        flex-direction: column;
+    }
+    
+    .map-container {
+        height: 250px;
+    }
+}
+
+.section-title {
+    font-family: "Cormorant Garamond", serif;
+    text-align: center;
+    font-size: 2.8rem;
+    margin: 50px 0 30px;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+
+.masonry-grid {
+    columns: 4 250px;
+    column-gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: block; /* Ensure it's a block element */
+}
+
+.masonry-grid img {
+    width: 100%;
+    border: 0.1px solid grey;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    break-inside: avoid;
+    display: block; /* Ensure images are block elements */
+}
+.masonry-grid img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 1200px) {
+    .masonry-grid {
+        columns: 3 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry-grid {
+        columns: 2 100px;  
+    }
+    #home h1 
+    {
+        font-size: 2rem;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(255, 238, 0);
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: 3px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        animation: fadeIn 2s ease;
+    }
+    #home 
+    {
+        height: 83vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-grid {
+        columns: 2 150px; 
+        column-gap: 15px;  
+    }
+    
+    .masonry-grid img {
+        margin-bottom: 15px;  
+    }
+}
+
+@media (max-width: 360px) {
+    .masonry-grid {
+        columns: 1 150px;  
+    }
+}
+
+.packages-container {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 50px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.package-card {
+    background: #fff;
+    border-radius: 30px;
+    padding: 30px;
+    width: 30rem;
+    transition: all 0.3s ease;
+    border: 1px solid #A294F9;
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+    transition: all 0.3s ease;
+
+}
+
+.package-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.8rem;
+    color: #2807ff;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.package-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.package-card ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 1.1rem;
+}
+
+.package-card ul li:last-child {
+    border-bottom: none;
+}
+
+.package-card .price {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #b8860b; 
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+
+
+@media (max-width: 992px) {
+    .packages-container {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .packages-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .package-card {
+        width: 23rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+section 
+{
+    margin:20px 30px;
+    padding: 10px;
+    border: 0.1px solid grey;
+    border-radius: 10px;
+}
+
+
+
+#book 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+#book button 
+{
+    background-color:#A294F9;
+    color:white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: -1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#book h1 
+{
+    font-size: clamp(1.8rem, 4vw, 3rem); 
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.4;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.booking-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+}
+
+.booking-popup .popup-content {
+    background-color: #f9f8ff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    animation: fadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e6e1ff;
+}
+
+.booking-popup h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    color: #3a2e7a;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Form Group Styling */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: "Jost", sans-serif;
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    font-weight: 500;
+}
+
+/* Input Fields */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid #d9d4ff;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    background-color: white;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #A294F9;
+    box-shadow: 0 0 0 3px rgba(162, 148, 249, 0.15);
+}
+
+/* Enhanced Select Dropdown */
+.form-group select {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    padding-right: 2.5rem;
+    border: 1px solid #d9d4ff;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23555555'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.2rem;
+}
+
+.form-group select:hover {
+    border-color: #b8adfc;
+}
+
+/* Custom Date Input */
+.form-group input[type="date"] {
+    position: relative;
+    padding-right: 1.2rem;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+/* Textarea Specific */
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #A294F9;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: "Jost", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(162, 148, 249, 0.3);
+}
+
+.submit-btn:hover {
+    background-color: #8e7ef7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(162, 148, 249, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Close Button */
+.booking-popup .close-popup {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #aaa;
+    transition: all 0.2s ease;
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.booking-popup .close-popup:hover {
+    color: #777;
+    background-color: #f0edff;
+}
+
+/* Success Message */
+.booking-success-popup .popup-content {
+    text-align: center;
+    padding: 2.5rem;
+}
+
+.booking-success-popup .success-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.5rem;
+}
+
+.booking-success-popup h3 {
+    color: #4CAF50;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.booking-success-popup p {
+    font-family: "Open Sans", sans-serif;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .booking-popup .popup-content {
+        padding: 1.8rem;
+    }
+    
+    .booking-popup h3 {
+        font-size: 1.6rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem 1rem;
+    }
+    
+    .submit-btn {
+        padding: 0.9rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
+
+#checkout
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+#checkout h1 
+{
+    font-size: 1.5rem;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+}
+#checkout button 
+{
+    padding: 0.5rem 1.2rem;
+    margin: 10px;
+    color:ghostwhite;
+    background-color: blue;
+    font-weight: 600;
+    border-radius: 5px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    border: none;
+}

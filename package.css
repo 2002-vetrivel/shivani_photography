@@ -6,7 +6,7 @@
     transition: ease;
 }
 :target {
-    scroll-margin-top: 150px; /* Adjust this value to match your navbar height */
+    scroll-margin-top: 100px; /* Adjust this value to match your navbar height */
 }
 
 
@@ -110,6 +110,7 @@ body {
     background-size: cover;
     height: 90vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -135,14 +136,11 @@ body {
 
 
 @media (max-width: 768px) {
-    #navigationBar {
-        border-bottom-right-radius: 30px;
-    }
+   
     #navigation {
         flex-direction: column;
         padding: 1rem;
         position: relative;
-        border-bottom-right-radius: 30px;
     }
 
     #ImgLogo {
@@ -167,12 +165,13 @@ body {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 100vh;
+        height: 90vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        margin-top: 105px; 
+        margin-top: 85px; 
         border-radius: 0;
     }
     
@@ -483,10 +482,6 @@ footer p {
         letter-spacing: 3px;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         animation: fadeIn 2s ease;
-    }
-    #home 
-    {
-        height: 83vh;
     }
 }
 

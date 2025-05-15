@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Ephesis&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lavishly+Yours&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Pricing</title>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Ephesis&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lavishly+Yours&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="price.css">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+</head>
+<body>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            if (!document.getElementById('google_translate_element')) return;
+
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ta,hi,kn,ml,te',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+                autoDisplay: false
+            }, 'google_translate_element');
+            
+            setTimeout(removeGoogleBranding, 1000);
+        }
+        
+        function removeGoogleBranding() {
+            var googleBranding = document.querySelector('.goog-logo-link');
+            if (googleBranding) googleBranding.style.display = 'none';
+            
+            var googleText = document.querySelector('.goog-te-gadget');
+            if (googleText) {
+                var textNodes = googleText.childNodes;
+                for (var i = 0; i < textNodes.length; i++) {
+                    if (textNodes[i].nodeType === Node.TEXT_NODE) {
+                        textNodes[i].nodeValue = '';
+                    }
+                }
+            }
+            
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.style.padding = '5px';
+                select.style.borderRadius = '5px';
+                select.style.border = '0.1px solid #555';
+                select.style.outline = "none";
+                select.style.backgroundColor = "ghostwhite";
+                select.style.color = "black";
+                select.style.cursor = "pointer";
+            }
+        }
+        
+        function loadGoogleTranslate() {
+            var script = document.createElement('script');
+            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            script.async = true;
+            document.body.appendChild(script);
+        }
+    </script>
+    <header id="navigationBar">
+        <div id="navigation">
+            <div id="language-selector">
+                <div id="google_translate_element"></div>
+            </div>
+
+            <div id="left" class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+
+            <div id="ImgLogo">
+                <img src="images/logo.png" alt="ShivaniPhotography">
+            </div>
+
+            <div id="right" class="nav-links">
+                <a href="#pricing">Pricing</a>
+                <a href="#feedback">Feedback</a>
+            </div>
+            
+            <button id="mobile-menu-button" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="home">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="images/videobg.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <h1>Explore our frames<br> and gifts</h1>
+    </section>
+
+    <section id="gallery">
+        <h1>Gallery</h1>
+        <h2>Our recent captures</h2>
+        <div class="masonry-grid">
+            <img src="photos/one.jpeg" alt="images1">
+            <img src="photos/two.jpeg" alt="images2">
+            <img src="photos/three.jpeg" alt="images3">
+            <img src="photos/four.jpeg" alt="images4">
+            <img src="photos/five.jpeg" alt="images5">
+            <img src="photos/six.jpeg" alt="images6">
+            <img src="photos/seven.jpeg" alt="images7">
+            <img src="images/img1.jpeg" alt="images8">
+            <img src="images/img2.jpeg" alt="images9">
+            <img src="images/img3.jpeg" alt="images10">
+            <img src="images/wed1.jpeg" alt="">
+            <img src="images/wed2.jpeg" alt="">
+            <img src="images/wed3.jpeg" alt="">
+            <img src="images/newimage4.jpeg" alt="">
+            <img src="images/newimage5.jpeg" alt="">
+            <img src="images/newimage6.jpeg" alt="">
+            <img src="images/newimage8.jpeg" alt="">
+            <img src="images/newimage9.jpeg" alt="">
+            <img src="images/newimage17.jpeg" alt="">
+            <img src="images/newimage18.jpeg" alt="">
+            <img src="images/newimage19.jpeg" alt="">
+            <img src="images/newimage20.jpeg" alt="">
+        </div>
+    </section>
+
+    <div id="quotes">
+        <img src="images/content.png" alt="">
+        <h1>A photo gallery is not just a collection of images—it's a museum of moments that once lived.</h1>
+        <img src="images/quotesEnd.png" alt="">
+    </div>
+
+    <section id="pricing">
+        <h3>Price List</h3>
+        <h2>Our recent Price list and Offers</h2>
+        <div class="container">        
+            <!-- Personalized Photo Frames -->
+            <section>
+                <h2>Personalized Photo Frames</h2>
+                <ul class="price-list">
+                    <li><span>6x4 inch</span><span>₹200</span></li>
+                    <li><span>6x8 inch</span><span>₹400</span></li>
+                    <li><span>12x8 inch</span><span>₹550</span></li>
+                    <li><span>12x10 inch</span><span>₹600</span></li>
+                    <li><span>10x15 inch</span><span>₹750</span></li>
+                    <li><span>12x15 inch</span><span>₹850</span></li>
+                    <li><span>12x18 inch</span><span>₹999</span></li>
+                    <li><span>16x20 inch</span><span>₹1499</span></li>
+                    <li><span>16x24 inch</span><span>₹1749</span></li>
+                    <li><span>18x24 inch</span><span>₹1899</span></li>
+                    <li><span>20x24 inch</span><span>₹1999</span></li>
+                    <li><span>20x30 inch</span><span>₹2399</span></li>
+                </ul>
+                <button class="view-btn" data-target="photo-frames-gallery">View Images</button>
+                <div id="photo-frames-gallery" class="image-gallery" style="display: none;">
+                    <div class="gallery-placeholder">Photo frames images</div>
+                    <div class="image-grid">
+                        <div class="grid-item">
+                          <img src="photos/fram1.jpeg" alt="Description 1">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/frame2.jpeg" alt="Description 2">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/frame3.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/frame4.jpeg" alt="Description 3">
+                          </div>
+                          <div class="grid-item">
+                            <img src="photos/frame5.jpeg" alt="Description 3">
+                          </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Mugs -->
+            <section>
+                <h2>Mugs</h2>
+                <ul class="price-list">
+                    <li><span>Tea Cup (Color)</span><span>₹229</span></li>
+                    <li><span>Tea Cup (Magic)</span><span>₹299</span></li>
+                </ul>
+                <button class="view-btn" data-target="mugs-gallery">View Images</button>
+                <div id="mugs-gallery" class="image-gallery" style="display: none;">
+                    <div class="gallery-placeholder">Mugs images</div>
+                    <div class="image-grid">
+                        <div class="grid-item">
+                          <img src="photos/mug1.jpeg" alt="Description 1">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/mug2.jpeg" alt="Description 2">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/mug3.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/mug4.jpeg" alt="Description 3">
+                          </div>
+                          <div class="grid-item">
+                            <img src="photos/mug5.jpeg" alt="Description 3">
+                          </div>
+                          <div class="grid-item">
+                            <img src="photos/mug6.jpeg" alt="Description 3">
+                          </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- T-Shirts -->
+            <section>
+                <h2>T-Shirts</h2>
+                <ul class="price-list">
+                    <li><span>Plain Mini</span><span>₹300</span></li>
+                    <li><span>Plain design</span><span>₹350</span></li>
+                </ul>
+                <button class="view-btn" data-target="tshirts-gallery">View Images</button>
+                <div id="tshirts-gallery" class="image-gallery" style="display: none;">
+                    <div class="gallery-placeholder">T-Shirts images</div>
+                    <div class="image-grid">
+                        <div class="grid-item">
+                          <img src="photos/tshirt.jpeg" alt="Description 1">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/tshirt2.jpeg" alt="Description 2">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/tshirt3.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/tshirt4.jpeg" alt="Description 3">
+                          </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Gifts -->
+            <section>
+                <h2>Gifts</h2>
+                <ul class="price-list">
+                    <li><span>Rotating Lamp</span><span>₹450</span></li>
+                    <li><span>Mirror Printing</span><span>₹400</span></li>
+                    <li><span>Stone Printing</span><span>₹400</span></li>
+                    <li><span>Metal Mirror</span><span>₹699</span></li>
+                    <li><span>Bottle Printing</span><span>₹249</span></li>
+                    <li><span>Pen Stand Watch</span><span>₹399</span></li>
+                    <li><span>Wood Printing</span><span>₹250</span></li>
+                    <li><span>Pillow (Heart)</span><span>₹549</span></li>
+                    <li><span>Photo Calendar</span><span>₹169</span></li>
+                    <li><span>Love Frame</span><span>₹199</span></li>
+                </ul>
+                <button class="view-btn" data-target="gifts-gallery">View Images</button>
+                <div id="gifts-gallery" class="image-gallery" style="display: none;">
+                    <div class="gallery-placeholder">Gifts images will be displayed here</div>
+                    <div class="image-grid">
+                        <div class="grid-item">
+                          <img src="photos/lamp1.jpeg" alt="Description 1">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/lamp2.jpeg" alt="Description 2">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/mirror1.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/mirror2.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/stone1.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/stone2.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/bottle1.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/bottle2.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/stand1.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/stand2.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/stand3.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/wood.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/wood2.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/wood3.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/pillow.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/pillow2.jpg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/pillow3.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/cal1.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/cal2.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/love1.jpeg" alt="Description 3">
+                        </div>
+                        <div class="grid-item">
+                            <img src="photos/love2.jpeg" alt="Description 3">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Combo Offers -->
+            <section>
+                <h2>Combo Offers</h2>
+                <ul class="price-list">
+                    <li><span>6 Photo Frames (6x8 × 6)</span><span><s>₹2400</s> ₹2299</span></li>
+                    <li><span>3 Photo Frames (2 x 6x8, 12x8) + Cup + Keychain</span><span><s>₹1499</s> ₹1199</span></li>
+                    <li><span>6 Frames (6x8 × 4, 12x8 × 2)</span><span><s>₹2200</s> ₹2000</span></li>
+                    <li><span>9 Frames (4x 6x4, 4x 6x8, 1x 12x8)</span><span><s>₹3000</s> ₹2799</span></li>
+                </ul>
+                <button class="view-btn" data-target="combo-gallery">View Images</button>
+                <div id="combo-gallery" class="image-gallery" style="display: none;">
+                    <div class="gallery-placeholder">Combo offers</div>
+                    <div class="image-grid">
+                        <div class="grid-item">
+                          <img src="photos/combo.jpeg" alt="Description 1">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/combo2.jpeg" alt="Description 2">
+                        </div>
+                        <div class="grid-item">
+                          <img src="photos/combo3.jpeg" alt="Description 3">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <div id="quotes">
+        <img src="images/content.png" alt="">
+        <h1>Photography is the only language that can be understood anywhere in the world.</h1>
+        <img src="images/quotesEnd.png" alt="">
+    </div>
+
+    <section style="margin-top: 30px;" id="feedback">
+        <h1>FEEDBACK</h1>
+        <h2>Give a chance to know about your satisfaction</h2>
+
+        <div id="form">
+            <input type="text" name="name" id="name" placeholder="NAME" required>
+            <input type="text" name="occassion" id="occassion" placeholder="OCCASION" required>
+            <div class="emoji-rating">
+                <span>RATING:</span>
+                <div class="emoji-container">
+                    <input type="radio" name="rating" id="rating1" value="1" required>
+                    <label for="rating1"><img src="images/vp.png" alt="Very Poor"></label>
+                    <input type="radio" name="rating" id="rating2" value="2">
+                    <label for="rating2"><img src="images/p.png" alt="Poor"></label>
+                    <input type="radio" name="rating" id="rating3" value="3">
+                    <label for="rating3"><img src="images/n.png" alt="Neutral"></label>
+                    <input type="radio" name="rating" id="rating4" value="4">
+                    <label for="rating4"><img src="images/g.png" alt="Good"></label>
+                    <input type="radio" name="rating" id="rating5" value="5">
+                    <label for="rating5"><img src="images/vg.png" alt="Excellent"></label>
+                </div>
+                <span id="rating-value" class="rating-value">Not rated yet</span>
+            </div>
+            <input type="email" name="email" id="email" placeholder="EMAIL" required>
+            <input type="text" name="Message" id="message" placeholder="Any Queries?" required>
+            <div id="error-message" class="error-message"></div>
+            <div id="feedbackBtn">
+                <button id="submit">Send</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <footer>
+        <h1>தெய்வத்தான் ஆகா தெனினும் முயற்சிதன்<br>
+            மெய்வருத்தக் கூலி தரும்.</h1>
+        <div id="socialMedias">
+            <a href="https://www.facebook.com/102401962679264">
+                <img src="images/facebook.png" alt="facebook">
+            </a>
+            <a href="https://www.instagram.com/shivani_photographyvsi">
+                <img src="images/instagram.png" alt="instagram">
+            </a>
+        </div>
+        <button id="Location">Location</button>
+        <p>@Shivani Photography and Wedding works | +91 8015701540</p>
+    </footer>
+
+    <div class="location-popup" id="locationPopup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="location-container">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.44888880176194!2d79.60250265818811!3d12.504078098874162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5325d30a6187f1%3A0x53cab9fcd4a9bda!2sGJ33%2BJ2V%2C%20No.10%2C%20Pakkukara%20St%2C%20Vandavasi%2C%20Tamil%20Nadu%20604408!5e0!3m2!1sen!2sin!4v1746544922098!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="address-container">
+                    <h3>Shivani Photography</h3>
+                    <p>No 10, Kakkukara street</p>
+                    <p>Vandavasi - 604408, Thiruvannamalai dst</p>
+                    <p>India</p>
+                    <p>Phone: +91 80157 01540</p>
+                    <p>Email: shivaniphotographyvsi@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="price.js"></script>
+</body>
+</html>

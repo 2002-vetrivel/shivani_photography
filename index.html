@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Ephesis&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lavishly+Yours&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Shivani Photography</title>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Ephesis&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lavishly+Yours&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init('lOuKWi9c59TbW1fyy');
+    })();
+</script>
+
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyCAAUBEYm7MbR4eX-yAVuWf8PCvHEv0TYQ",
+    authDomain: "shivani-photography.firebaseapp.com",
+    projectId: "shivani-photography",
+    storageBucket: "shivani-photography.firebasestorage.app",
+    messagingSenderId: "647976092581",
+    appId: "1:647976092581:web:ee532041c6a2943f33de4c",
+    measurementId: "G-THL7LM4L4J"
+  };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+<body>
+    <header id="navigationBar">
+        <div id="navigation">
+            <div id="language-selector">
+                <div id="google_translate_element"></div>
+            </div>
+
+            <div id="left" class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About us</a>
+            </div>
+
+            <div id="ImgLogo">
+                <img src="/images/logo.png" alt="ShivaniPhotography">
+            </div>
+
+            <div id="right" class="nav-links">
+                <a href="#services">Pricing</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-button" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="home">
+        <div id="content">
+            <h1>Save you memories with us!</h1>
+            <h2>Shivani<br>Photography</h2>
+            <a href="#services">
+            <button>Explore</button>
+            </a>
+        </div>
+    </section>
+
+    
+    <script>
+        document.getElementById('languageSelect').addEventListener('change', function() {
+            console.log('Selected language:', this.value);
+        });
+    </script>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            if (!document.getElementById('google_translate_element')) return;
+            
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ta,hi,kn,ml,te',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+                autoDisplay: false
+            }, 'google_translate_element');
+            
+            setTimeout(removeGoogleBranding, 1000);
+        }
+        
+        function removeGoogleBranding() {
+            var googleBranding = document.querySelector('.goog-logo-link');
+            if (googleBranding) googleBranding.style.display = 'none';
+            
+            var googleText = document.querySelector('.goog-te-gadget');
+            if (googleText) {
+                var textNodes = googleText.childNodes;
+                for (var i = 0; i < textNodes.length; i++) {
+                    if (textNodes[i].nodeType === Node.TEXT_NODE) {
+                        textNodes[i].nodeValue = '';
+                    }
+                }
+            }
+            
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.style.padding = '5px';
+                select.style.borderRadius = '5px';
+                select.style.border = '0.1px solid #555';
+                select.style.outline = "none";
+                select.style.backgroundColor = "ghostwhite";
+                select.style.color = "black";
+                select.style.cursor = "pointer";
+            }
+        }
+        
+        function loadGoogleTranslate() {
+            var script = document.createElement('script');
+            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            script.async = true;
+            document.body.appendChild(script);
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadGoogleTranslate);
+    </script>
+
+
+    <section id="two">
+        <img src="images/content.png" alt="content">
+        <h1>Showcasing your big day in a memorable and unforgettable way.</h1>
+    </section>
+    <div id="who">
+        <h2>ABOUT US</h2>
+        <h1>Who we are?</h1>
+    </div>
+
+    <section id="about">
+        <div id="left">
+            <img src="images/about.jpeg" alt="about">
+        </div>
+
+        <div id="right">
+            <img src="images/quotes.png" alt="quotes">
+            <p>At Shivani Photography, every frame tells a story.
+            Founded with a deep passion for capturing emotions, 
+            beauty, and timeless memories, we believe photography 
+            is more than just clicking a button — it's about freezing 
+            a moment that speaks louder than words. Whether
+            it's the sparkle in a bride’s eyes, the laughter of a newborn,
+            or the golden glow of nature, our lens is focused
+            on what truly matters.
+        </p>
+        <img class="end" src="images/quotesEnd.png" alt="end">
+        </div>
+    </section>
+    
+    <section id="services">
+        <div id="texts">
+            <h2>SERVICES</h2>
+            <h1>What we Offer</h1>
+        </div>
+        <div id="offers">
+            <div id="first">
+                <img src="images/wedding.png" alt="">
+                <h1>Wedding</h1>
+                <p>Starting from</p>
+                <h4 style="text-decoration:line-through;">₹50000</h4>
+                <h4>₹45000</h4>
+                <a href="package.html#wedding">
+                <button id="weddingBtn">More Details</button>
+                </a>
+            </div>
+            <div id="second">
+                <img src="images/portrait.png" alt="">
+                <h1>Engagement</h1>
+                <p>Starting from</p>
+                <h4 style="text-decoration:line-through;">₹12000</h4>
+                <h4>₹10000</h4>
+                <a href="package.html#engagement">
+                <button id="PortraitBtn">More Details</button>
+                </a>
+            </div>
+            <div id="third">
+                <img src="images/engagement.png" alt="">
+                <h1>Birthday</h1>
+                <p>Starting from</p>
+                <h4 style="text-decoration:line-through;">₹12000</h4>
+                <h4>₹10000</h4>
+                <a href="package.html#birthday">
+                <button id="EngagementBtn">More Details</button>
+                </a>
+            </div>
+            <div id="fourth">
+                <img src="images/wedding.png" alt="">
+                <h1>Baby shower</h1>
+                <p>Starting from</p>
+                <h4 style="text-decoration:line-through;">₹12000</h4>
+                <h3>₹10000</h3>
+                <a href="package.html#babyshower">
+                <button id="EngagementBtn">More Details</button>
+                </a>
+            </div>
+            <div id="fifth">
+                <img src="images/portrait.png" alt="">
+                <h1>Puberty function</h1>
+                <p>Starting from</p>
+                <h4 style="text-decoration:line-through;">₹12000</h4>
+                <h4>₹10000</h4>
+                <a href="package.html#pubertyfunction">
+                <button id="EngagementBtn">More Details</button>
+                </a>
+            </div>
+            
+            <div id="seventh">
+                <img src="images/wedding.png" alt="">
+                <h1>Frames & Gifts</h1>
+                <p>Starting from</p>
+                <h4>₹199</h4>
+                <a href="price.html">
+                <button id="EngagementBtn">More Details</button>
+                </a>
+            </div>
+        </div>
+        <div id="book">
+            <h1>Book your seat now!</h1>
+            <button>Book</button>
+        </div>
+    </section>
+
+    <!-- Booking Popup -->
+<!-- Booking Popup -->
+<div class="booking-popup" id="bookingPopup">
+    <div class="popup-content">
+        <span class="close-popup" id="bookingClose">&times;</span>
+        <h3>Book Your Session</h3>
+        <form id="bookingForm">
+            <div class="form-group">
+                <input type="text" id="bookingName" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="bookingEmail" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="bookingPhone" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group">
+                <select id="bookingOccasion" required>
+                    <option value="" disabled selected>Select Occasion</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Engagement">Engagement</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Baby Shower">Baby Shower</option>
+                    <option value="Puberty Function">Puberty Function</option>
+                    <option value="Events">Events</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group" id="otherOccasionGroup" style="display: none;">
+                <input type="text" id="otherOccasion" placeholder="Please specify occasion">
+            </div>
+            <div class="form-group">
+                <input type="date" id="bookingDate" required>
+            </div>
+            <div class="form-group">
+                <textarea id="bookingMessage" placeholder="Any special requests or notes"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Book Now</button>
+        </form>
+    </div>
+</div>
+
+    <section id="work">
+        <h1>HELPING COUPLES BRING TO LIFE THEIR WEDDING DREAMS</h1>
+        <div id="servs">
+            <div id="firstServ">
+                <h1>5</h1>
+                <p>Year Experience</p>
+            </div>
+            <div id="secondServ">
+                <h1>35+</h1>
+                <p>Photo Delivered</p>
+            </div>
+            <div id="thirdServ">
+                <h1>50+</h1>
+                <p>Events Captured</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div id="leftContact">
+            <h2>Contact</h2>
+            <h1>Get in Touch</h1>
+
+            <div id="details">
+                <input type="text" name="name" id="name" placeholder="NAME">
+                <input type="text" name="number" id="number" placeholder="PHONE NO">
+                <input type="text" name="Message" id="message" placeholder="MESSAGE">
+            </div>
+
+            <div id="contactBtn">
+                <button id="submit">Send</button>
+            </div>
+        </div>
+
+        <div id="rightContact">
+            <img src="images/contact.jpeg" alt="contactPic">
+        </div>
+    </section>
+
+    <!-- Success Popup -->
+    <div class="success-popup" id="successPopup">
+        <div class="popup-content">
+            <span class="close-popup" id="popupClose">&times;</span>
+            <img src="images/checkmark.png" alt="Success" class="success-icon">
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for contacting us. We'll get back to you soon.</p>
+        </div>
+    </div>
+    <footer>
+        <h1>தெய்வத்தான் ஆகா தெனினும் முயற்சிதன்<br>
+            மெய்வருத்தக் கூலி தரும்.</h1>
+        <div id="socialMedias">
+            <a href="https://www.facebook.com/102401962679264">
+                <img src="images/facebook.png" alt="facebook">
+            </a>
+            <a href="https://www.instagram.com/shivani_photographyvsi">
+                <img src="images/instagram.png" alt="instagram">
+            </a>
+        </div>
+        <button id="Location">Location</button>
+        <p>@Shivani Photography and Wedding works | +91 8015701540</p>
+    </footer>
+
+    <div class="location-popup" id="locationPopup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="location-container">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.44888880176194!2d79.60250265818811!3d12.504078098874162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5325d30a6187f1%3A0x53cab9fcd4a9bda!2sGJ33%2BJ2V%2C%20No.10%2C%20Pakkukara%20St%2C%20Vandavasi%2C%20Tamil%20Nadu%20604408!5e0!3m2!1sen!2sin!4v1746544922098!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="address-container">
+                    <h3>Shivani Photography</h3>
+                    <p>No 10, Kakkukara street</p>
+                    <p>Vandavasi - 604408, Thiruvannamalai dst</p>
+                    <p>India</p>
+                    <p>Phone: +91 80157 01540</p>
+                    <p>Email: shivaniphotographyvsi@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Initialize EmailJS with your public key
+document.addEventListener('DOMContentLoaded', function() {
+    emailjs.init('LqINu1w9FBXSD97VA'); 
+    
+    // Setup booking form submission
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('bookingName').value;
+            const email = document.getElementById('bookingEmail').value;
+            const phone = document.getElementById('bookingPhone').value;
+            let occasion = document.getElementById('bookingOccasion').value;
+            const date = document.getElementById('bookingDate').value;
+            const message = document.getElementById('bookingMessage').value;
+            
+            // If occasion is "Other", get the custom value
+            if (occasion === 'Other') {
+                occasion = document.getElementById('otherOccasion').value || 'Other';
+            }
+            
+            // Prepare the email parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                phone_number: phone,
+                occasion: occasion,
+                event_date: date,
+                message: message,
+                to_email: 'vetrivel08257@gmail.com' // Your owner's email address
+            };
+            
+            // Send the email
+            emailjs.send('service_ybtzz94', 'template_i09l8g4', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    // Show success message
+                    alert('Your booking request has been sent successfully!');
+                    // Close the popup
+                    document.getElementById('bookingPopup').style.display = 'none';
+                    // Reset the form
+                    bookingForm.reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Failed to send booking request. Please try again later.');
+                });
+        });
+    }
+    
+    // Show/hide other occasion field based on selection
+    const occasionSelect = document.getElementById('bookingOccasion');
+    const otherOccasionGroup = document.getElementById('otherOccasionGroup');
+    
+    if (occasionSelect && otherOccasionGroup) {
+        occasionSelect.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                otherOccasionGroup.style.display = 'block';
+            } else {
+                otherOccasionGroup.style.display = 'none';
+            }
+        });
+    }
+});
+    </script>
+
+    <script>
+        
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

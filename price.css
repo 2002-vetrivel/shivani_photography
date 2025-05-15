@@ -115,6 +115,7 @@ body {
     position: relative; 
     height: 90vh;
     display: flex;
+    flex-direction:center;
     align-items: center;
     justify-content: center;
     text-align: center;

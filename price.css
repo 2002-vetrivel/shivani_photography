@@ -152,16 +152,10 @@ body {
 
 @media (max-width: 768px) {
 
-    #navigationBar 
-    {
-
-        border-bottom-right-radius: 30px;
-    }
     #navigation {
         flex-direction: column;
         padding: 1rem;
         position: relative;
-        border-bottom-right-radius: 30px;
     }
 
     #ImgLogo {
@@ -183,10 +177,9 @@ body {
     }
     #home {
         
-        height: 88vh;
-        margin-top: 100px;
+        height: 90vh;
+        margin-top: 80px;
         display: flex;
-        margin-top:-10px;
         align-items: center;
         justify-content: center;
         text-align: center;

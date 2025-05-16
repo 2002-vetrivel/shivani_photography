@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadingGif.style.height = '160px';
     
     const loadingText = document.createElement('p');
-    loadingText.textContent = 'Yes, I Know It’s Slow. My Coding Teacher Was YouTube 🤡';
+    loadingText.textContent = 'You scroll memes for hours but can’t wait 5 secs? Chill';
     loadingText.style.marginTop = '15px';
     loadingText.style.fontSize = '16px';
     loadingText.style.color = '#333';

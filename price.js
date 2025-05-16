@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadingGif.style.height = '130px';
 
     const loadingText = document.createElement('p');
-    loadingText.textContent = 'Yes, I Know It’s Slow. My Coding Teacher Was YouTube 🤡';
+    loadingText.textContent = 'One sec — adding extra masala to the pixels';
     loadingText.style.marginTop = '15px';
     loadingText.style.fontSize = '16px';
     loadingText.style.color = '#333';

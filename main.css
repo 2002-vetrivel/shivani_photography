@@ -600,10 +600,10 @@ body {
     #offers {
         gap: 1.5rem;
     }
-    
+  
     #offers > div {
-        min-width: 60%;
-        max-width: 270px;
+        min-width: 40%;
+        max-width: 470px;
     }
 }
 
@@ -617,13 +617,23 @@ body {
     }
     
     #offers img {
-        width: 100px;
-        height: 150px;
+        width: 50px;
+        height: 80px;
     }
     
     #offers h1 {
         font-size: 2rem;
     }
+    #offers button 
+    {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+    #offers h4 
+    {
+        font-size: 18px;
+    }
+    
 }
 
 #work {
@@ -1308,14 +1318,13 @@ input:invalid {
     background-color: #A294F9;
     color: white;
     border: none;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     font-family: "Jost", sans-serif;
-    font-size: 1rem;
+    font-size: 0.6rem;
     font-weight: 500;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 40%;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 0.5rem;
@@ -1360,6 +1369,19 @@ input:invalid {
 .booking-success-popup .popup-content {
     text-align: center;
     padding: 2.5rem;
+}
+.popup-content p
+{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.5;
+    text-align: center;
+    padding: 10px;
+    color: grey;
+}
+.popup-content p span 
+{
+    color: blue;
+    cursor: pointer;
 }
 
 .booking-success-popup .success-icon {

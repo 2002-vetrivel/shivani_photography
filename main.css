@@ -1370,11 +1370,11 @@ input:invalid {
     text-align: center;
     padding: 2.5rem;
 }
-.popup-content {
+.popup-contents {
   max-height: 90vh; /* limits height to 90% of viewport */
   overflow-y: auto;  /* enables vertical scrolling */
-  padding: 20px;
-  background: white;
+  padding: 50px;
+  background-color:#e0dcff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }

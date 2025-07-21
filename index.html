@@ -19,11 +19,6 @@
     <link rel="icon" href="images/logo.png" type="image/x-icon">
 </head>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-    (function() {
-        emailjs.init('lOuKWi9c59TbW1fyy');
-    })();
-</script>
 
 <script>
     const firebaseConfig = {
@@ -36,7 +31,6 @@
     measurementId: "G-THL7LM4L4J"
   };
   
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>
 
@@ -180,7 +174,7 @@
                 <img src="images/wedding.png" alt="">
                 <h1>Wedding</h1>
                 <p>Starting from</p>
-                <h4> <span style="text-decoration:line-through;">₹50000</span><br><span style="color: black;">₹45000</span></h4>
+                <h4> <span style="text-decoration:line-through;">₹45000</span><br><span style="color: black;">₹35000</span></h4>
                 <a href="package.html#wedding">
                 <button id="weddingBtn">More Details</button>
                 </a>
@@ -233,7 +227,7 @@
             </div>
         </div>
         <div id="book">
-            <h1>Book your seat now!</h1>
+            <h1>Make your order now!</h1>
             <button>Book</button>
         </div>
     </section>
@@ -277,7 +271,12 @@
             </div>
             <button type="submit" class="submit-btn">Book Now</button>
         </form>
-        <p>For hustle free booking, click here to pay your advance amount <span>Click</span></p>
+        <p>For hustle free booking, click here to pay your advance amount 
+    <span class="order" onclick="showQR()">QR - code</span>
+  </p>
+  <div id="qrContent">
+    <img class="qr" src="/images/scanner.jpeg" alt="qr-code" id="qrCode">
+  </div>
     </div>
 </div>
 
@@ -362,6 +361,12 @@
             </div>
         </div>
     </div>
+      <script>
+    function showQR() {
+      document.getElementById('qrCode').style.display = 'block';
+    }
+  </script>
+
     <script>
         // Initialize EmailJS with your public key
 document.addEventListener('DOMContentLoaded', function() {
@@ -398,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             // Send the email
-            emailjs.send('service_ybtzz94', 'template_i09l8g4', templateParams)
+            emailjs.send('service_r8bnijm', 'template_i09l8g4', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     // Show success message
@@ -428,10 +433,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-    </script>
-
-    <script>
-        
     </script>
     <script src="main.js"></script>
 </body>

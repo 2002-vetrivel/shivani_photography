@@ -117,19 +117,19 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 89vh;
+    height: 150vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 
 #content {
     max-width: 1200px;
     padding: 2rem;
-    margin: 0 auto;
+    margin-top: -240px;
 }
 
 #content h1 {
@@ -1370,6 +1370,15 @@ input:invalid {
     text-align: center;
     padding: 2.5rem;
 }
+.popup-content {
+  max-height: 90vh; /* limits height to 90% of viewport */
+  overflow-y: auto;  /* enables vertical scrolling */
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
 .popup-content p
 {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -1435,4 +1444,47 @@ input:invalid {
         transform: translateY(0) scale(1);
     }
 }
+
+/* Container for the QR code popup */
+.qr-popup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Overlay on the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  z-index: 1000; /* Ensure it overlays other elements */
+}
+
+/* Inner content box for the QR code */
+.qr-popup-content {
+  background-color: #fff; /* White background for content */
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  max-width: 400px;
+  width: 80%;
+  text-align: center;
+}
+.qr {
+      display: none;
+      margin-top: 10px;
+      width: 200px;
+      height: auto;
+      border: 0.1px solid grey;
+      border-radius: 20px;
+    }
+
+    .order {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+
+    .order:hover {
+      color: darkblue;
+    }
 

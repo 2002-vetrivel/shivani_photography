@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             submitBtn.disabled = true;
             
-            emailjs.send('service_ybtzz94', 'template_fmptq3f', {
+            emailjs.send('service_r8bnijm', 'template_fmptq3f', {
                 name: document.getElementById('name').value.trim(),
                 occasion: document.getElementById('occassion').value.trim(),
                 rating: document.querySelector('input[name="rating"]:checked').value,

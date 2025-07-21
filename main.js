@@ -273,6 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    
     // Form submission
     if(bookingForm) {
         bookingForm.addEventListener('submit', function(e) {
@@ -326,5 +327,6 @@ document.addEventListener('DOMContentLoaded', function() {
             bookingPopup.style.display = 'none';
         }
     });
+
 
 });

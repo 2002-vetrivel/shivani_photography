@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadingGif.style.height = '160px';
     
     const loadingText = document.createElement('p');
-    loadingText.textContent = 'You scroll memes for hours but can’t wait 5 secs? Chill';
+    loadingText.textContent = 'Loading...';
     loadingText.style.marginTop = '15px';
     loadingText.style.fontSize = '16px';
     loadingText.style.color = '#333';

@@ -18,21 +18,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
 </head>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script>
-    const firebaseConfig = {
-    apiKey: "AIzaSyCAAUBEYm7MbR4eX-yAVuWf8PCvHEv0TYQ",
-    authDomain: "shivani-photography.firebaseapp.com",
-    projectId: "shivani-photography",
-    storageBucket: "shivani-photography.firebasestorage.app",
-    messagingSenderId: "647976092581",
-    appId: "1:647976092581:web:ee532041c6a2943f33de4c",
-    measurementId: "G-THL7LM4L4J"
-  };
-  
-    firebase.initializeApp(firebaseConfig);
-  </script>
 
 <body>
     <header id="navigationBar">
@@ -299,35 +285,37 @@
     </section>
 
     <section id="contact">
-        <div id="leftContact">
-            <h2>Contact</h2>
-            <h1>Get in Touch</h1>
+    <div id="leftContact">
+      <h2>Contact</h2>
+      <h1>Get in Touch</h1>
+      <div id="details">
+        <input type="text" name="name" id="name" placeholder="NAME" />
+        <input type="text" name="number" id="number" placeholder="PHONE NO" />
+        <input type="text" name="Message" id="message" placeholder="MESSAGE" />
+      </div>
+      <div id="contactBtn">
+        <button id="submit">Send</button>
+      </div>
+        <p style="margin-block: 15px; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-style: italic;">
+        📩 Feel free to reach out us, drop your mail — 
+        <a href="mailto:shivaniphotographyvsi@gmail.com">shivaniphotographyvsi@gmail.com</a>
+        </p>
+    </div>
+    <div id="rightContact">
+      <img src="images/contact.jpeg" alt="contactPic" />
+    </div>
+  </section>
 
-            <div id="details">
-                <input type="text" name="name" id="name" placeholder="NAME">
-                <input type="text" name="number" id="number" placeholder="PHONE NO">
-                <input type="text" name="Message" id="message" placeholder="MESSAGE">
-            </div>
-
-            <div id="contactBtn">
-                <button id="submit">Send</button>
-            </div>
-        </div>
-
-        <div id="rightContact">
-            <img src="images/contact.jpeg" alt="contactPic">
-        </div>
-    </section>
 
     <!-- Success Popup -->
     <div class="success-popup" id="successPopup">
-        <div class="popup-content">
-            <span class="close-popup" id="popupClose">&times;</span>
-            <img src="images/checkmark.png" alt="Success" class="success-icon">
-            <h3>Message Sent Successfully!</h3>
-            <p>Thank you for contacting us. We'll get back to you soon.</p>
-        </div>
+    <div class="popup-content">
+      <span class="close-popup" id="popupClose">&times;</span>
+      <img src="images/checkmark.png" alt="Success" class="success-icon" />
+      <h3>Message Sent Successfully!</h3>
+      <p>Thank you for contacting us. We'll get back to you soon.</p>
     </div>
+  </div>
     <footer>
         <h1>தெய்வத்தான் ஆகா தெனினும் முயற்சிதன்<br>
             மெய்வருத்தக் கூலி தரும்.</h1>
@@ -340,7 +328,7 @@
             </a>
         </div>
         <button id="Location">Location</button>
-        <p>@Shivani Photography and Wedding works | +91 8015701540 | <100% hand-crafted 😏/></p>
+        <p>@Shivani Photography and Wedding works | +91 8015701540 | developed by @Vetri</p>
     </footer>
 
     <div class="location-popup" id="locationPopup">
@@ -367,73 +355,39 @@
     }
   </script>
 
-    <script>
-        // Initialize EmailJS with your public key
-document.addEventListener('DOMContentLoaded', function() {
-    emailjs.init('LqINu1w9FBXSD97VA'); 
-    
-    // Setup booking form submission
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('bookingName').value;
-            const email = document.getElementById('bookingEmail').value;
-            const phone = document.getElementById('bookingPhone').value;
-            let occasion = document.getElementById('bookingOccasion').value;
-            const date = document.getElementById('bookingDate').value;
-            const message = document.getElementById('bookingMessage').value;
-            
-            // If occasion is "Other", get the custom value
-            if (occasion === 'Other') {
-                occasion = document.getElementById('otherOccasion').value || 'Other';
-            }
-            
-            // Prepare the email parameters
-            const templateParams = {
-                from_name: name,
-                from_email: email,
-                phone_number: phone,
-                occasion: occasion,
-                event_date: date,
-                message: message,
-                to_email: 'vetrivel08257@gmail.com' // Your owner's email address
-            };
-            
-            // Send the email
-            emailjs.send('service_r8bnijm', 'template_i09l8g4', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    // Show success message
-                    alert('Your booking request has been sent successfully!');
-                    // Close the popup
-                    document.getElementById('bookingPopup').style.display = 'none';
-                    // Reset the form
-                    bookingForm.reset();
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Failed to send booking request. Please try again later.');
-                });
-        });
-    }
-    
-    // Show/hide other occasion field based on selection
-    const occasionSelect = document.getElementById('bookingOccasion');
-    const otherOccasionGroup = document.getElementById('otherOccasionGroup');
-    
-    if (occasionSelect && otherOccasionGroup) {
-        occasionSelect.addEventListener('change', function() {
-            if (this.value === 'Other') {
-                otherOccasionGroup.style.display = 'block';
-            } else {
-                otherOccasionGroup.style.display = 'none';
-            }
-        });
-    }
-});
-    </script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    // Hide old messages
+    document.getElementById("success-message").innerText = "";
+    document.getElementById("error-message").innerText = "";
+
+    const serviceID = "YOUR_SERVICE_ID";     // Replace with your EmailJS service ID
+    const templateID = "YOUR_TEMPLATE_ID";   // Replace with your EmailJS template ID
+
+    const templateParams = {
+      from_name: document.getElementById("name").value,
+      from_email: document.getElementById("email").value,
+      message: document.getElementById("message").value
+    };
+
+    emailjs.send(serviceID, templateID, templateParams)
+      .then(() => {
+        document.getElementById("success-message").innerText = "Message sent successfully!";
+        document.getElementById("contact-form").reset();
+      }, (error) => {
+        document.getElementById("error-message").innerText = "Failed to send message. Please try again.";
+        console.error("EmailJS error:", error);
+      });
+  });
+</script>
+
     <script src="main.js"></script>
 </body>
 </html>

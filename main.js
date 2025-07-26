@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.removeChild(sendingOverlay);
                 
                 console.error("Error: " + error.message);
-                alert("There was an error sending your message. Please try again.");
+                alert("There was an error sending your message. please drop your contact to our mail id!");
             });
         }
     });

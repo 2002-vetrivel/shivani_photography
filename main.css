@@ -1341,76 +1341,6 @@ input:invalid {
     transform: translateY(0);
 }
 
-/* Close Button */
-.booking-popup .close-popup {
-    position: absolute;
-    top: 1.2rem;
-    right: 1.5rem;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #aaa;
-    transition: all 0.2s ease;
-    background: none;
-    border: none;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.booking-popup .close-popup:hover {
-    color: #777;
-    background-color: #f0edff;
-}
-
-/* Success Message */
-.booking-success-popup .popup-content {
-    text-align: center;
-    padding: 2.5rem;
-}
-.popup-contents {
-  max-height: 90vh; /* limits height to 90% of viewport */
-  overflow-y: auto;  /* enables vertical scrolling */
-  padding: 50px;
-  background-color:#e0dcff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-.popup-content p
-{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5;
-    text-align: center;
-    padding: 10px;
-    color: grey;
-}
-.popup-content p span 
-{
-    color: blue;
-    cursor: pointer;
-}
-
-.booking-success-popup .success-icon {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 1.5rem;
-}
-
-.booking-success-popup h3 {
-    color: #4CAF50;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-.booking-success-popup p {
-    font-family: "Open Sans", sans-serif;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -1444,47 +1374,180 @@ input:invalid {
         transform: translateY(0) scale(1);
     }
 }
-
-/* Container for the QR code popup */
-.qr-popup {
-  display: none; /* Hidden by default */
-  position: fixed; /* Overlay on the screen */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  justify-content: center; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically */
-  z-index: 1000; /* Ensure it overlays other elements */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Enable scrolling for the overlay */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: flex-start; /* Changed from center to prevent content cutoff */
+    padding: 20px 0; /* Add padding for smaller screens */
 }
 
-/* Inner content box for the QR code */
-.qr-popup-content {
-  background-color: #fff; /* White background for content */
-  padding: 20px;
-  border-radius: 10px;
-  position: relative;
-  max-width: 400px;
-  width: 80%;
-  text-align: center;
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh; /* Limit height to viewport */
+    overflow-y: auto; /* Enable scrolling for content */
+    position: relative;
+    margin: 20px 0; /* Add margin for better spacing */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-.qr {
-      display: none;
-      margin-top: 10px;
-      width: 200px;
-      height: auto;
-      border: 0.1px solid grey;
-      border-radius: 20px;
-    }
 
-    .order {
-      cursor: pointer;
-      color: blue;
-      text-decoration: underline;
-    }
+.close-popup {
+    position: sticky;
+    top: 0;
+    right: 0;
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: #777;
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-bottom: 10px;
+    z-index: 1;
+}
 
-    .order:hover {
-      color: darkblue;
-    }
+.close-popup:hover {
+    color: #333;
+    background: #f5f5f5;
+}
 
+/* Form Styles */
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #8e7ef7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width button */
+}
+
+.submit-btn:hover {
+    background-color: #A294F9;
+}
+
+/* Booking Button */
+.booking-btn {
+    background-color: #0314ff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.booking-btn:hover {
+    background-color: #8e7ef7;
+}
+
+/* Status Message */
+.status-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}
+
+.success {
+    background-color: #dff0d8;
+    color: #8e7ef7;
+    display: block;
+}
+
+.error {
+    background-color: #f2dede;
+    color: #a94442;
+    display: block;
+}
+
+#bookings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    margin: 10px;
+    padding: 30px;
+    border: 0.1px solid grey;
+    border-radius: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-height: 600px) {
+    .popup-content {
+        padding: 20px;
+        max-height: 85vh;
+    }
+}
+
+#imagess
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+    text-align: center;
+}
+#imagess img 
+{
+    border: 0.1px solid grey;
+    border-radius: 20px;
+}

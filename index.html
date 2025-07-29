@@ -212,59 +212,70 @@
                 </a>
             </div>
         </div>
-        <div id="book">
-            <h1>Make your order now!</h1>
-            <button>Book</button>
-        </div>
     </section>
 
-    <!-- Booking Popup -->
-<!-- Booking Popup -->
-<div class="booking-popup" id="bookingPopup">
-    <div class="popup-contents">
-        <span class="close-popup" id="bookingClose">&times;</span>
-        <h3>Book Your Session</h3>
-        <form id="bookingForm">
-            <div class="form-group">
-                <input type="text" id="bookingName" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" id="bookingEmail" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" id="bookingPhone" placeholder="Phone Number" required>
-            </div>
-            <div class="form-group">
-                <select id="bookingOccasion" required>
-                    <option value="" disabled selected>Select Occasion</option>
-                    <option value="Wedding">Wedding</option>
-                    <option value="Engagement">Engagement</option>
-                    <option value="Birthday">Birthday</option>
-                    <option value="Baby Shower">Baby Shower</option>
-                    <option value="Puberty Function">Puberty Function</option>
-                    <option value="Events">Events</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="form-group" id="otherOccasionGroup" style="display: none;">
-                <input type="text" id="otherOccasion" placeholder="Please specify occasion">
-            </div>
-            <div class="form-group">
-                <input type="date" id="bookingDate" required>
-            </div>
-            <div class="form-group">
-                <textarea id="bookingMessage" placeholder="Any special requests or notes"></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Book Now</button>
-        </form>
-        <p style="margin-block: 15px;">For hustle free booking, click here to pay your advance amount 
-    <span class="order" onclick="showQR()">QR - code</span>
-  </p>
-  <div id="qrContent">
-    <img class="qr" src="/images/scanner.jpeg" alt="qr-code" id="qrCode">
-  </div>
+    <div id="bookings">
+        <h1 style="    font-family: Quicksand, sans-serif;
+        ">Book your event now!</h1>
+    <button class="booking-btn" id="openBookingPopup">
+        <i class="fas fa-calendar-check"></i> Book Now
+    </button>
+    
     </div>
-</div>
+    <!-- Booking Popup -->
+    <div class="popup-overlay" id="bookingPopup">
+        <div class="popup-content">
+            <span class="close-popup" id="closeBookingPopup">&times;</span>
+            <h2>Make a Booking</h2>
+            <form id="bookingForm" class="booking-form">
+                <div class="form-group">
+                    <label for="name">Full Name*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="occasion">Occasion*</label>
+                    <select id="occasion" name="occasion" required>
+                        <option value="">Select an occasion</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Corporate Event">Corporate Event</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Date*</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Booking</button>
+                
+                <div id="statusMessage" class="status-message"></div>
+            </form>
+            <div id="imagess">
+                <p>For hustle free, make your advance payment with QR-Code</p>
+                <img src="/images/scanner.jpeg" alt="" style="width: 130px;">
+            </div>
+        </div>
+    </div>
+
 
     <section id="work">
         <h1>HELPING COUPLES BRING TO LIFE THEIR WEDDING DREAMS</h1>
@@ -283,6 +294,7 @@
             </div>
         </div>
     </section>
+
 
     <section id="contact">
     <div id="leftContact">
@@ -305,8 +317,6 @@
       <img src="images/contact.jpeg" alt="contactPic" />
     </div>
   </section>
-
-
     <!-- Success Popup -->
     <div class="success-popup" id="successPopup">
     <div class="popup-content">
@@ -332,8 +342,7 @@
     </footer>
 
     <div class="location-popup" id="locationPopup">
-        <div class="popup-content">
-            <span class="close-popup">&times;</span>
+        <div style="background-color: #e6e1ff; border-radius: 30px; " class="popup-content">
             <div class="location-container">
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.44888880176194!2d79.60250265818811!3d12.504078098874162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5325d30a6187f1%3A0x53cab9fcd4a9bda!2sGJ33%2BJ2V%2C%20No.10%2C%20Pakkukara%20St%2C%20Vandavasi%2C%20Tamil%20Nadu%20604408!5e0!3m2!1sen!2sin!4v1746544922098!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
@@ -354,39 +363,84 @@
       document.getElementById('qrCode').style.display = 'block';
     }
   </script>
-
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    // Hide old messages
-    document.getElementById("success-message").innerText = "";
-    document.getElementById("error-message").innerText = "";
-
-    const serviceID = "YOUR_SERVICE_ID";     // Replace with your EmailJS service ID
-    const templateID = "YOUR_TEMPLATE_ID";   // Replace with your EmailJS template ID
-
-    const templateParams = {
-      from_name: document.getElementById("name").value,
-      from_email: document.getElementById("email").value,
-      message: document.getElementById("message").value
-    };
-
-    emailjs.send(serviceID, templateID, templateParams)
-      .then(() => {
-        document.getElementById("success-message").innerText = "Message sent successfully!";
-        document.getElementById("contact-form").reset();
-      }, (error) => {
-        document.getElementById("error-message").innerText = "Failed to send message. Please try again.";
-        console.error("EmailJS error:", error);
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    
+  <script>
+      // Initialize EmailJS with your User ID
+      (function() {
+          // Initialize EmailJS - replace 'YOUR_USER_ID' with your actual EmailJS user ID
+          emailjs.init('LqINu1w9FBXSD97VA');
+      })();
+      
+      // Popup functionality
+      document.addEventListener('DOMContentLoaded', function() {
+          const bookingPopup = document.getElementById('bookingPopup');
+          const openBookingPopup = document.getElementById('openBookingPopup');
+          const closeBookingPopup = document.getElementById('closeBookingPopup');
+          const bookingForm = document.getElementById('bookingForm');
+          const statusMessage = document.getElementById('statusMessage');
+          
+          // Open popup
+          openBookingPopup.addEventListener('click', function() {
+              bookingPopup.style.display = 'flex';
+              document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+          });
+          
+          // Close popup
+          closeBookingPopup.addEventListener('click', function() {
+              bookingPopup.style.display = 'none';
+              document.body.style.overflow = 'auto';
+          });
+          
+          // Close popup when clicking outside the content
+          bookingPopup.addEventListener('click', function(e) {
+              if (e.target === bookingPopup) {
+                  bookingPopup.style.display = 'none';
+                  document.body.style.overflow = 'auto';
+              }
+          });
+          
+          // Form submission
+          bookingForm.addEventListener('submit', function(e) {
+              e.preventDefault();
+              
+              // Get form values
+              const formData = {
+                  name: document.getElementById('name').value,
+                  email: document.getElementById('email').value,
+                  phone: document.getElementById('phone').value,
+                  occasion: document.getElementById('occasion').value,
+                  date: document.getElementById('date').value,
+                  message: document.getElementById('message').value
+              };
+              
+              // Send email using EmailJS
+              // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+              emailjs.send('service_r8bnijm', 'template_i09l8g4', formData)
+                  .then(function(response) {
+                      console.log('SUCCESS!', response.status, response.text);
+                      statusMessage.textContent = 'Thank you! Your booking request has been sent successfully.';
+                      statusMessage.className = 'status-message success';
+                      statusMessage.style.display = 'block';
+                      
+                      // Reset form
+                      bookingForm.reset();
+                      
+                      // Hide popup after 3 seconds
+                      setTimeout(function() {
+                          bookingPopup.style.display = 'none';
+                          document.body.style.overflow = 'auto';
+                          statusMessage.style.display = 'none';
+                      }, 3000);
+                  }, function(error) {
+                      console.log('FAILED...', error);
+                      statusMessage.textContent = 'There was an error sending your booking request. Please try again.';
+                      statusMessage.className = 'status-message error';
+                      statusMessage.style.display = 'block';
+                  });
+          });
       });
-  });
-</script>
+  </script>
 
     <script src="main.js"></script>
 </body>
